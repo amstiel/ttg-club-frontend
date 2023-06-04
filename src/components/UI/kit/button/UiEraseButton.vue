@@ -5,20 +5,22 @@
     type="text"
     icon="close"
     color="text"
-    @click.prevent="value = ''"
+    @click.left.exact.prevent="onClick"
   />
 </template>
 
 <script setup lang="ts">
-  import { useVModel } from '@vueuse/core';
-  import SvgIcon from '@/components/UI/icons/SvgIcon.vue';
   import UiButton from '@/components/UI/kit/button/UiButton.vue';
 
-  const props = defineProps<{
-    modelValue: string;
-  }>();
+  type TEmit = {
+    (e: 'clear'): void;
+  }
 
-  const value = useVModel(props, 'modelValue');
+  const emit = defineEmits<TEmit>();
+
+  const onClick = () => {
+    emit('clear');
+  };
 </script>
 
 <style lang="scss" module>

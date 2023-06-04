@@ -37,6 +37,7 @@
                 v-model="search"
                 placeholder="Поиск..."
                 is-clearable
+                autofocus
                 @update:model-value="onChangeSearch()"
                 @keyup.enter.exact.prevent.stop="onChangeSearch"
               />
@@ -137,7 +138,7 @@
   const input = ref<HTMLElement>();
   const controls = ref<HTMLElement>();
   const controller = ref<AbortController>(new AbortController());
-  const { focused } = useFocus(input, { initialValue: true });
+  const { focused } = useFocus(input);
 
   const results = ref<TSearchResultList>({
     count: 0,
