@@ -20,6 +20,11 @@ export const routes: Readonly<RouteRecordRaw[]> = [
     }
   },
   {
+    name: 'chips',
+    path: '/chips',
+    component: () => import('@/pages/ChipsTestPage.vue')
+  },
+  {
     name: 'classes',
     path: '/classes',
     component: () => import('@/pages/Character/Classes/ClassesView.vue'),
